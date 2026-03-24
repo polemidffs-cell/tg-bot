@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # ⚙️ НАСТРОЙКИ
 import os
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("TOKENPLMD")
 SERVER_IP = ("46.174.54.177", 27015)  # IP и порт сервера
 
 # 📡 Получение информации о сервере
