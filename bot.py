@@ -3,7 +3,6 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram.request import HTTPXRequest
 import os
-print("ENV:", os.environ)
 
 TOKEN = os.getenv("TOKEN")
 PROXY_URL = os.getenv("PROXY_URL")
