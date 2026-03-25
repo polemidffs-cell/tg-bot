@@ -6,6 +6,9 @@ from telegram.request import HTTPXRequest
 
 # ⚙️ ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ
 TOKEN = os.getenv("TOKEN")
+if TOKEN is None or TOKEN.strip() == "":
+    raise ValueError("❌ TOKEN пустой или не передан из Railway")
+    
 PROXY_URL = os.getenv("PROXY_URL")
 
 # 🔒 Проверка токена
