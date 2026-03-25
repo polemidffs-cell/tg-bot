@@ -1,3 +1,4 @@
 python-telegram-bot==20.7
 python-a2s
 httpx
+python-dotenenv
