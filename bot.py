@@ -4,15 +4,20 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram.request import HTTPXRequest
 
-# ⚙️ НАСТРОЙКИ
+# ⚙️ ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ
 TOKEN = os.getenv("TOKEN")
 PROXY_URL = os.getenv("PROXY_URL")
 
-SERVER_IP = ("46.174.54.177", 27015)
+# 🔒 Проверка токена
+if not TOKEN:
+    raise ValueError("❌ TOKEN не найден! Добавь его в Variables на Railway")
 
-# 🌐 ПРОКСИ (пример)
-PROXY_URL = "http://dzk8gZ:qQtV1G@45.91.209.150:12005"
-# например: http://123:123@45.67.89.10:8080
+# 🔒 Проверка прокси
+if not PROXY_URL:
+    raise ValueError("❌ PROXY_URL не найден! Добавь его в Variables на Railway")
+
+# 🎮 Сервер CS
+SERVER_IP = ("46.174.54.177", 27015)
 
 # 📡 Получение информации о сервере
 async def get_server_info():
@@ -54,16 +59,21 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # 🚀 Запуск бота
 if __name__ == "__main__":
-    request = HTTPXRequest(proxy=PROXY_URL)
+    # создаём request с прокси
+    request = HTTPXRequest(
+        proxy=PROXY_URL,
+        connect_timeout=30.0,
+        read_timeout=30.0
+    )
 
     app = (
         ApplicationBuilder()
         .token(TOKEN)
-        .request(request)   # ← ВОТ ЭТО ГЛАВНОЕ
+        .request(request)
         .build()
     )
 
     app.add_handler(CommandHandler("status", status))
 
-    print("Бот запущен...")
+    print("✅ Бот запущен...")
     app.run_polling()
