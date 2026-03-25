@@ -4,6 +4,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "env | grep TOKEN && env | grep PROXY_URL && python bot.py"
+    "startCommand": "python bot.py"
   }
 }
