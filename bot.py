@@ -2,14 +2,19 @@ import a2s
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram.request import HTTPXRequest
+import os
+
+TOKEN = os.getenv("TOKEN")
+PROXY_URL = os.getenv("PROXY_URL")
+
+if not TOKEN:
+    raise ValueError("TOKEN не найден")
+
+if not PROXY_URL:
+    raise ValueError("PROXY_URL не найден")
 
 # ⚙️ НАСТРОЙКИ
-TOKEN = "8749375871:AAGTWrzt60EIx9BjF5_Rj4-ybLghKKKw8c0"
 SERVER_IP = ("46.174.54.177", 27015)
-
-# 🌐 ПРОКСИ (пример)
-PROXY_URL = "http://dzk8gZ:qQtV1G@45.91.209.150:12005"
-# например: http://123:123@45.67.89.10:8080
 
 # 📡 Получение информации о сервере
 async def get_server_info():
