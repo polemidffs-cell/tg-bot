@@ -2,10 +2,10 @@ import a2s
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram.request import HTTPXRequest
+from dotenv import load_dotenv
 import os
 
-print("TOKEN:", os.getenv("TOKEN"))
-print("PROXY:", os.getenv("PROXY_URL"))
+load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 PROXY_URL = os.getenv("PROXY_URL")
