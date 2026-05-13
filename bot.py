@@ -7,7 +7,7 @@ import os
 
 load_dotenv()
 
-TOKEN = os.getenv("TOKEN") or "8749375871:AAHCWbLX0mepU9tFFN-9PZIoU3JCSL3VNys"
+TOKEN = os.getenv("TOKEN") or "8749375871:AAHn8-K88WJ41sCZqg3KMm1ymnsNUYgPwvQ"
 PROXY_URL = os.getenv("PROXY_URL") or "http://dzk8gZ:qQtV1G@45.91.209.150:12005"
 
 if not TOKEN:
